@@ -5,7 +5,7 @@ Integrantes:
 
 -Nicolás Castro
 -Daniel Alessio
--
+-Gimena Perez
 -
 -
 -
