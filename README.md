@@ -3,11 +3,11 @@ Entrega de: Integrador del Tercer Semestre por el grupo Alpha Code
 
 Integrantes:
 
--Nicolás Castro
+- Nicolás Castro
 
--Daniel Alessio
+- Daniel Alessio
 
--Gimena Perez
+- Gimena Perez
 
 - Natalia Rivarola
   
