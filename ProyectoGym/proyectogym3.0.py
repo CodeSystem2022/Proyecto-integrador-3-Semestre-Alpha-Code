@@ -137,3 +137,41 @@ class GymDatabase:
                 print("Objetivo:", cliente[7])
                 print("Pagado:", "Sí" if cliente[8] else "No")
    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        elif opcion == "4":
+            filtro = input("Ingrese el nombre, apellido o DNI a filtrar: ")
+            resultados = db.filter_clientes(filtro)
+            if resultados:
+                print("Resultados de la búsqueda:")
+                for cliente in resultados:
+                    print("ID:", cliente[0])
+                    print("Nombre:", cliente[1])
+                    print("Apellido:", cliente[2])
+                    print("Edad:", cliente[3])
+                    print("DNI:", cliente[4])
+                    print("Peso:", cliente[5])
+                    print("Altura:", cliente[6])
+                    print("Objetivo:", cliente[7])
+                    print("Pagado:", "Sí" if cliente[8] else "No")
+                    print("----------------------")
+            else:
+                print("No se encontraron resultados.")
+                
