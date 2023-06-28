@@ -4,7 +4,7 @@
 ## Natalia Rivarola
 ## Daniel Alessio
 ## Santiago Bordón
-##
+##Eric Maturano
 ##
 ##
 import psycopg2
@@ -81,31 +81,31 @@ class GymDatabase:
     def close_connection(self):
         self.cur.close()
         self.conn.close()
+        
+        # Ejemplo de uso del proyecto
+if __name__ == "__main__":
+    db = GymDatabase(
+        host="127.0.0.1",
+        database="gym4_bd",
+        port="5432",
+        user="postgres",
+        password="admin"
+    )
+    db.connect()
+    db.create_table()
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    while True:
+        print("\n  ╔════════════════════════════════════╗")
+        print("  ║              MENÚ                  ║")
+        print("  ╠════════════════════════════════════╣")
+        print("  ║  1. Agregar cliente                ║")
+        print("  ║  2. Editar cliente                 ║")
+        print("  ║  3. Eliminar cliente               ║")
+        print("  ║  4. Filtrar clientes               ║")
+        print("  ║  5. Ver lista completa de clientes ║")
+        print("  ║  6. Salir                          ║")
+        print("  ╚════════════════════════════════════╝")
+        opcion = input("Seleccione una opción: ")
 
 
  if opcion == "1":
