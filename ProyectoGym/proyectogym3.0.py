@@ -2,7 +2,7 @@
 ## Integrantes:
 ## Nicolás Castro
 ## Natalia Rivarola
-##
+## Daniel Alessio
 ##
 ##
 ##
@@ -81,4 +81,59 @@ class GymDatabase:
     def close_connection(self):
         self.cur.close()
         self.conn.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ if opcion == "1":
+            nombre = input("Nombre: ")
+            apellido = input("Apellido: ")
+            edad = int(input("Edad: "))
+            dni = input("DNI: ")
+            peso = float(input("Peso: "))
+            altura = float(input("Altura: "))
+            objetivo = input("Objetivo de entrenamiento (perdida de grasa / hipertrofia): ")
+            pagado = input("¿Pagado? (Sí / No): ").lower() == "sí"
+
+            db.insert_cliente(nombre, apellido, edad, dni, peso, altura, objetivo, pagado)
+            print("Cliente agregado con éxito.")
+
+        elif opcion == "2":
+            cliente_id = int(input("Ingrese el ID del cliente a editar: "))
+            clientes = db.filter_clientes(cliente_id)
+            if clientes:
+                cliente = clientes[0]
+                print("Cliente encontrado:")
+                print("ID:", cliente[0])
+                print("Nombre:", cliente[1])
+                print("Apellido:", cliente[2])
+                print("Edad:", cliente[3])
+                print("DNI:", cliente[4])
+                print("Peso:", cliente[5])
+                print("Altura:", cliente[6])
+                print("Objetivo:", cliente[7])
+                print("Pagado:", "Sí" if cliente[8] else "No")
    
