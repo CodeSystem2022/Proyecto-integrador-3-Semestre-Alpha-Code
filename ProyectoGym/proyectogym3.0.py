@@ -1,7 +1,7 @@
 ## proyecto Grupo Alhpa Code
 ## Integrantes:
 ## Nicolás Castro
-##
+## Natalia Rivarola
 ##
 ##
 ##
@@ -44,5 +44,41 @@ class GymDatabase:
             )
         """)
         self.conn.commit()
+    def insert_cliente(self, nombre, apellido, edad, dni, peso, altura, objetivo, pagado):
+        self.cur.execute("""
+            INSERT INTO clientes (nombre, apellido, edad, dni, peso, altura, objetivo, pagado)
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
+        """, (nombre, apellido, edad, dni, peso, altura, objetivo, pagado))
+        self.conn.commit()
 
+    def update_cliente(self, cliente_id, nombre, apellido, edad, dni, peso, altura, objetivo, pagado):
+        self.cur.execute("""
+            UPDATE clientes
+            SET nombre = %s, apellido = %s, edad = %s, dni = %s, peso = %s, altura = %s, objetivo = %s, pagado = %s
+            WHERE id = %s
+        """, (nombre, apellido, edad, dni, peso, altura, objetivo, pagado, cliente_id))
+        self.conn.commit()
+
+    def delete_cliente(self, cliente_id):
+        self.cur.execute("DELETE FROM clientes WHERE id = %s", (cliente_id,))
+        self.conn.commit()
+
+    def filter_clientes(self, filtro):
+        self.cur.execute("""
+            SELECT id, nombre, apellido, edad, dni, peso, altura, objetivo, pagado
+            FROM clientes
+            WHERE nombre ILIKE %s OR apellido ILIKE %s OR dni ILIKE %s
+        """, (f"%{filtro}%", f"%{filtro}%", f"%{filtro}%"))
+        return self.cur.fetchall()
+
+    def get_lista_clientes(self):
+        self.cur.execute("""
+            SELECT id, nombre, apellido, edad, dni, peso, altura, objetivo, pagado
+            FROM clientes
+        """)
+        return self.cur.fetchall()
+
+    def close_connection(self):
+        self.cur.close()
+        self.conn.close()
    
