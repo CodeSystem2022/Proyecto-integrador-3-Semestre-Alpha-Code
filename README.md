@@ -11,7 +11,7 @@ Integrantes:
 
 - Natalia Rivarola
   
--Carla Rosales
+- Carla Rosales
 -
 -
 
