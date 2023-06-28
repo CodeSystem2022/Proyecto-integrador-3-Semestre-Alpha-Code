@@ -9,7 +9,7 @@ Integrantes:
 
 -Gimena Perez
 
--Natalia Rivarola
+- Natalia Rivarola
 -
 -
 -
