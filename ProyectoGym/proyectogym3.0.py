@@ -3,7 +3,7 @@
 ## Nicolás Castro
 ## Natalia Rivarola
 ## Daniel Alessio
-##
+## Santiago Bordón
 ##
 ##
 ##
@@ -174,4 +174,27 @@ class GymDatabase:
                     print("----------------------")
             else:
                 print("No se encontraron resultados.")
+
+        elif opcion == "5":
+            clientes = db.get_lista_clientes()
+            if clientes:
+                print("Lista completa de clientes:")
+                for cliente in clientes:
+                    print("ID:", cliente[0])
+                    print("Nombre:", cliente[1])
+                    print("Apellido:", cliente[2])
+                    print("Edad:", cliente[3])
+                    print("DNI:", cliente[4])
+                    print("Peso:", cliente[5])
+                    print("Altura:", cliente[6])
+                    print("Objetivo:", cliente[7])
+                    print("Pagado:", "Sí" if cliente[8] else "No")
+                    print("----------------------")
+            else:
+                print("No hay clientes registrados.")
+
+        elif opcion == "6":
+            break
+
+    db.close_connection()
                 
