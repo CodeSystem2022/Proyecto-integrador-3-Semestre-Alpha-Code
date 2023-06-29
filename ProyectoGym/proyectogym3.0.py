@@ -4,8 +4,8 @@
 ## Natalia Rivarola
 ## Daniel Alessio
 ## Santiago Bordón
-##Eric Maturano
-##
+## Eric Maturano
+## Gimena Perez
 ##
 import psycopg2
 
@@ -137,24 +137,24 @@ if __name__ == "__main__":
                 print("Objetivo:", cliente[7])
                 print("Pagado:", "Sí" if cliente[8] else "No")
    
+                nombre = input("Nuevo nombre: ")
+                apellido = input("Nuevo apellido: ")
+                edad = int(input("Nueva edad: "))
+                dni = input("Nuevo DNI: ")
+                peso = float(input("Nuevo peso: "))
+                altura = float(input("Nueva altura: "))
+                objetivo = input("Nuevo objetivo de entrenamiento (perdida de grasa / hipertrofia): ")
+                pagado = input("¿Pagado? (Sí / No): ").lower() == "sí"
 
+                db.update_cliente(cliente[0], nombre, apellido, edad, dni, peso, altura, objetivo, pagado)
+                print("Cliente editado con éxito.")
+            else:
+                print("Cliente no encontrado.")
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+        elif opcion == "3":
+            cliente_id = int(input("Ingrese el ID del cliente a eliminar: "))
+            db.delete_cliente(cliente_id)
+            print("Cliente eliminado con éxito.")
 
         elif opcion == "4":
             filtro = input("Ingrese el nombre, apellido o DNI a filtrar: ")
